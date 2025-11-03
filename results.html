@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Results</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="card">
+    <h2>Your Assessment Results</h2>
+    <div id="summary"></div>
+    <div id="recommendations"></div>
+
+    <div class="btn-row">
+      <a class="btn outline" href="student.html">Retake</a>
+      <a class="btn" href="index.html">Home</a>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      const res = JSON.parse(localStorage.getItem('ca_results') || 'null');
+      const qcount = JSON.parse(localStorage.getItem('ca_last_question_count') || '0');
+      const summaryEl = document.getElementById('summary');
+      const recEl = document.getElementById('recommendations');
+
+      if (!res) {
+        summaryEl.innerText = 'No results found. Please take the assessment first.';
+        return;
+      }
+
+      // show breakdown
+      summaryEl.innerHTML = `<h3>Score breakdown</h3>
+        <ul>${Object.keys(res).map(k => `<li><strong>${k}:</strong> ${res[k]}</li>`).join('')}</ul>
+        <p>Total answered: ${qcount}</p>`;
+
+      // recommendations
+      const recs = CA.getRecommendations(res);
+      recEl.innerHTML = `<h3>Recommended careers</h3>
+        ${recs.map(r => `<div class="recommend">${r.title}<div class="small">${r.reason}</div></div>`).join('')}`;
+    })();
+  </script>
+</body>
+</html>

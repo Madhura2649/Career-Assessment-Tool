@@ -1,0 +1,10 @@
+[
+  {"question":"Do you enjoy solving logical problems?","options":["Yes","No"],"type":"logic"},
+  {"question":"Do you like designing or creating visuals?","options":["Yes","No"],"type":"creative"},
+  {"question":"Do you enjoy working with data and numbers?","options":["Yes","No"],"type":"logic"},
+  {"question":"Do you prefer teamwork and communication tasks?","options":["Yes","No"],"type":"people"},
+  {"question":"Do you enjoy working with your hands or building things?","options":["Yes","No"],"type":"hands"},
+  {"question":"Do you like planning and organizing tasks?","options":["Yes","No"],"type":"people"},
+  {"question":"Do you like experimenting and analysing results?","options":["Yes","No"],"type":"logic"},
+  {"question":"Are you comfortable presenting and speaking publicly?","options":["Yes","No"],"type":"people"}
+]

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Student - Assessment</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="card">
+    <h2>Career Assessment</h2>
+    <div id="question-container"></div>
+
+    <div class="btn-row">
+      <button id="prevBtn" class="btn outline">Previous</button>
+      <button id="nextBtn" class="btn">Next</button>
+    </div>
+
+    <div id="submit-area" style="display:none;">
+      <button id="submit-btn" class="btn">Submit</button>
+    </div>
+
+    <div class="small-note">Questions are saved in your browser. Use Admin to add/edit.</div>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    // initialize and show paged quiz
+    (async function () {
+      const questions = await CA.loadQuestions();
+      CA.renderPagedQuiz('question-container', questions, { pageSize: 3 });
+    })();
+  </script>
+</body>
+</html>
